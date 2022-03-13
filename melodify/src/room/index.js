@@ -5,7 +5,7 @@ import Timer from './timer';
 import Input from '../components/input';
 import FeatureButton from '../components/button';
 import {SocketContext} from '../context/socket.js';
-import { message } from 'antd';
+import { AutoComplete, message } from 'antd';
 
 import Player from "../components/player"
 import Category from "../components/category"
@@ -156,15 +156,18 @@ const Room = () => {
                     ? 
                     <>
                         <h1>Lobby</h1>
-                        <p>Share this link with your friends! {link}</p>
+                        <p>Share this link with your friends! 🔗 <a href="#0">{link}</a></p>
                         <h1>Choose a category</h1>
                         <div className="categories">
                             <Category />
                         </div>
+                        <div className="start-game" style={{margin: "0 auto"}}>
                         <FeatureButton
                                 text="Start Game"
                                 onClick={handleStartGame}
                             />
+                        </div>
+                        
                     </>
                     : <>
                         <Track

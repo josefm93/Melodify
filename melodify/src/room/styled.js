@@ -4,6 +4,22 @@ export const Container = styled.div`
     flex: 1;
     display: flex;
     padding: 2rem;
+
+    a {
+        color: #9CF4E4;
+    }
+
+    .start-game {
+        width: 100%;
+        padding-bottom: 10px;
+        .feature-button {
+            width: 100% !important;
+
+            &:hover {
+                background-color: white !important;
+            }
+        }
+    }
 `;
 
 export const Left = styled.div`

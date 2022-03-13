@@ -5,6 +5,10 @@ export const Container = styled.div`
     width: 100%;
     margin-bottom: 2rem;
 
+    a {
+        color: #9CF4E4;
+    }
+
     .album-cover {
         margin-right: 2rem;
         img {
