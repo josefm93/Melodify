@@ -75,12 +75,12 @@ const Home = () => {
             >
                 <div className="avatar-and-welcome">
                     <CustomAvatar />
-
-                Hey there,
+                    <span>                Hey there,
                     <Input
                         placeholder="Enter Name"
                         onChange={handleNameChange}
-                    /> !
+                    /> !</span>
+
                 </div>
             </StyledModal>
             <img className="background left" src={backgroundLeft} alt="background"/>

@@ -62,12 +62,6 @@ export const StyledModal = styled(Modal)`
     padding: 2rem;
     /* min-height: 500px; */
 
-    .avatar-and-welcome {
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 25px;
-    }
-
     &.hidden {
         display: none;
     }
@@ -92,8 +86,20 @@ export const StyledModal = styled(Modal)`
             padding: 1rem 0;
             font-size: 2rem;
 
+            .avatar-and-welcome {
+                display: flex;
+                flex-direction: column;
+                padding-top: 2rem;
+
+                .ant-avatar {
+                    align-self: center;
+                    margin-bottom: 5rem;
+                    font-size: 4rem !important;
+                }
+            }
             .ant-input {
                 margin: 0 1rem;
+                width: 250px;
             }
         }
 
