@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 
+import Room from "./room/index.js"
 
 function App() {
   return (
@@ -13,27 +14,17 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Lobby</Link>
-            </li>
-            <li>
-              <Link to="/room">Room</Link>
+              <Link to="/">Room</Link>
             </li>
           </ul>
         </nav>
 
         <Routes>
-          <Route path="/" element={<Lobby/>}/>
-          <Route path="/room" element={<Room/>}/>
+
+          <Route path="/" element={<Room/>}/>
         </Routes>
       </div>
   );
 }
 
-function Room() {
-  return <h2>Rooom</h2>;
-}
-
-function Lobby() {
-  return <h2>Lobby</h2>;
-}
 export default App;
