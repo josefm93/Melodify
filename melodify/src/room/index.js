@@ -5,6 +5,7 @@ import Timer from './timer';
 import Input from '../components/input';
 import FeatureButton from '../components/button';
 import {SocketContext} from '../context/socket.js';
+import { message } from 'antd';
 
 import Player from "../components/player"
 import Category from "../components/category"
@@ -20,7 +21,9 @@ const Room = () => {
     const [players, setPlayers] = useState([]);
     const [track, setTrack] = useState({});
     const [timeLeft, setTimeLeft] = useState(TIME_PER_ROUND);
+    const [guess, setGuess] = useState("");
     const [guessedCorrectly, setGuessedCorrectly] = useState(false);
+    const [guessInput, setGuessInput] = useState("");
 
     let avatars = [];
 
@@ -119,6 +122,20 @@ const Room = () => {
         setStatus("start gaem")
     }
 
+    const handleUpdateGuess = (e) => {
+        setGuess(e.target.value);
+    }
+
+    const handleSubmitGuess = () => {
+        if (guess === "baby") {
+            setGuessedCorrectly(true);
+        } else {
+            const errorMessages = ["Oh noooo :(", "That's not it", "Try again", "You'll get it eventually ;)"];
+            const index = Math.floor(Math.random * errorMessages.length);
+            message.error(errorMessages[index]);
+        }
+    }
+
     return (
         <Container>
             <Left>
@@ -159,9 +176,12 @@ const Room = () => {
                                 <Input
                                     borderColour="#AF96C3"
                                     placeholder="Guess the song..."
+                                    onChange={handleUpdateGuess}
+                                    onEnter={handleSubmitGuess}
                                 />
                                 <FeatureButton
                                     text="Let's Gooo"
+                                    onClick={handleSubmitGuess}
                                 />
                             </div>
                             : <span className="win-text">You got it!</span>
