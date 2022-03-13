@@ -34,7 +34,7 @@ const Room = () => {
         // TODO: @Andy socket calls
         const samplePlayerArray = [
             {
-                name: '50 C',
+                name: 'Half Dolla (You)',
                 points: 0,
                 guess: {
                     value: 'Test',
