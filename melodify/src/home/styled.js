@@ -14,11 +14,14 @@ export const Container = styled.div`
         align-items: center;
         justify-content: center;
         margin: 0 auto;
+        top: 200px;
 
 
         h1 { 
+            width: 120%;
             color: #9CF4E4;
             margin: 0;
+            padding-left: 13%;
             font-size: 4rem;
             text-shadow: #3E625B 0px 5px;
         }
@@ -26,7 +29,7 @@ export const Container = styled.div`
         p { 
             color: #FFF;
             text-align: center;
-            width: 800px;
+            width: 600px;
             font-size: 1.25rem;
         }
 
@@ -58,6 +61,12 @@ export const StyledModal = styled(Modal)`
     border-radius: 1.5rem;
     padding: 2rem;
     /* min-height: 500px; */
+
+    .avatar-and-welcome {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 25px;
+    }
 
     &.hidden {
         display: none;

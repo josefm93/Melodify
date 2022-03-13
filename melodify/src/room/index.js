@@ -7,15 +7,16 @@ import FeatureButton from '../components/button';
 import {SocketContext} from '../context/socket.js';
 
 import Player from "../components/player"
+import Category from "../components/category"
 
 const Room = () => {
     const socket = useContext(SocketContext);
 
     const TIME_PER_ROUND = 30;
 
-    const [status, setStatus] = useState("STARTED");
+    const [status, setStatus] = useState("WAITING");
     const [round, setRound] = useState(1);
-    const [category, setCategory] = useState(null);
+    const [categories, setCategories] = useState([]);
     const [players, setPlayers] = useState([]);
     const [track, setTrack] = useState({});
     const [timeLeft, setTimeLeft] = useState(TIME_PER_ROUND);
@@ -23,17 +24,44 @@ const Room = () => {
 
     let avatars = [];
 
+
+    const link = "http://melodify.app/room?=zQ6Qt1pTnLM"
+
     useEffect(() => {
         // TODO: @Andy socket calls
         const samplePlayerArray = [
             {
-                name: 'One',
-                points: 10,
+                name: '50 C',
+                points: 0,
                 guess: {
                     value: 'Test',
                     correct: true,
                 }
-            }
+            },
+            {
+                name: 'The Game',
+                points: 0,
+                guess: {
+                    value: 'Test',
+                    correct: true,
+                }
+            },
+            {
+                name: '2 Chainz',
+                points: 0,
+                guess: {
+                    value: 'Test',
+                    correct: true,
+                }
+            },
+            {
+                name: 'Rich Smallies Big',
+                points: 0,
+                guess: {
+                    value: 'Test',
+                    correct: true,
+                }
+            },
         ];
 
         socket.on("newPlayer", (newPlayersList) => {
@@ -74,15 +102,21 @@ const Room = () => {
         setTrack(track);
     }
 
+    
     const renderPlayers = (players) => {
         let i = 0;
         return players.map((player) => (
             <Player 
                 key={player.name}
                 name={player.name}
+                points={player.points}
                 avatar={avatars[++i]}
             />
         ));
+    }
+
+    const handleStartGame = () => {
+        setStatus("start gaem")
     }
 
     return (
@@ -98,30 +132,42 @@ const Room = () => {
             </Left>
             <Right>
                 {
-                    status === "WAITING"
-                        ? <span>Lobby</span>
-                        : <>
-                            <Track
-                                timeLeft={timeLeft}
+                status === "WAITING"
+                    ? 
+                    <>
+                        <h1>Lobby</h1>
+                        <p>Share this link with your friends! {link}</p>
+                        <h1>Choose a category</h1>
+                        <div className="categories">
+                            <Category />
+                        </div>
+                        <FeatureButton
+                                text="Start Game"
+                                onClick={handleStartGame}
                             />
-                            <Timer
-                                maxTime={TIME_PER_ROUND}
-                                timeLeft={timeLeft}
-                            />
-                            {!guessedCorrectly
-                                ?    <div className="guessing-area">
-                                    <Input
-                                        borderColour="#AF96C3"
-                                        placeholder="Guess the song..."
-                                    />
-                                    <FeatureButton
-                                        text="Let's Gooo"
-                                    />
-                                </div>
-                                : <span className="win-text">You got it!</span>
-                            }
+                    </>
+                    : <>
+                        <Track
+                            timeLeft={timeLeft}
+                        />
+                        <Timer
+                            maxTime={TIME_PER_ROUND}
+                            timeLeft={timeLeft}
+                        />
+                        {!guessedCorrectly
+                            ?    <div className="guessing-area">
+                                <Input
+                                    borderColour="#AF96C3"
+                                    placeholder="Guess the song..."
+                                />
+                                <FeatureButton
+                                    text="Let's Gooo"
+                                />
+                            </div>
+                            : <span className="win-text">You got it!</span>
+                        }
 
-                        </>
+                    </>
                 }
             </Right>
         </Container>

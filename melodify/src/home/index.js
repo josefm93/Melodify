@@ -48,8 +48,8 @@ const Home = () => {
     return (
         <Container>
             <div className="content">
-                <h1>One two three.</h1>
-                <p>Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime.</p>
+                <h1>Knowledge is everything.</h1>
+                <p>Test your musical knowledge with a few of your buddies and see who comes out on top!</p>
                 <FeatureButton
                     text="Let's Gooo"
                     width="300px"
@@ -73,13 +73,15 @@ const Home = () => {
                     />
                 )}
             >
-                <CustomAvatar />
+                <div className="avatar-and-welcome">
+                    <CustomAvatar />
 
                 Hey there,
                     <Input
                         placeholder="Enter Name"
                         onChange={handleNameChange}
                     /> !
+                </div>
             </StyledModal>
             <img className="background left" src={backgroundLeft} alt="background"/>
             <img className="background right" src={backgroundRight} alt="background"/>

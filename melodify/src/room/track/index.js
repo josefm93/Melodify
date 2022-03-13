@@ -3,7 +3,7 @@ import { Container } from './styled';
 
 const Track = ({
         timeLeft=30,
-        category="Rock",
+        category="Pop",
         albumCoverURL="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.canadianlutheran.ca%2Fwp-content%2Fuploads%2F2011%2F02%2Fjustin-bieber-baby.jpg&f=1&nofb=1",
         title="Baby",
         artist="Justin Bieber (ft. Ludacris)"

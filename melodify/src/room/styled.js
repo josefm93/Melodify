@@ -50,6 +50,21 @@ export const Right = styled.div`
     display: flex;
     flex-direction: column;
 
+    /* lobby and categories */
+
+    .categories {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        justify-content: space-between;
+    }
+
+    h1, p {
+        color: #fff;
+    }
+
+
+    /* tracks */
     .guessing-area {
         flex: 1;
         display: flex;
