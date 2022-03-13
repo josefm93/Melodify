@@ -123,7 +123,8 @@ const Room = () => {
     }
 
     const handleStartGame = () => {
-        setStatus("start gaem")
+        setStatus("start gaem");
+        setTimeLeft(30);
     }
 
     const handleUpdateGuess = (e) => {
