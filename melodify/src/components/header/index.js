@@ -1,6 +1,6 @@
 import React from 'react';
-import './header.css';
-import logoUrl from '../assets/logo-white-text.svg';
+import './style.css';
+import logoUrl from '../../assets/logo-white-text.svg';
 
 const Header = () => {
     return (
