@@ -47,4 +47,6 @@ export const Left = styled.div`
 
 export const Right = styled.div`
     flex: 3;
+    display: flex;
+    flex-direction: column;
 `;
