@@ -37,32 +37,32 @@ const Room = () => {
                 name: 'Half Dolla (You)',
                 points: 0,
                 guess: {
-                    value: 'Test',
-                    correct: true,
+                    value: '',
+                    correct: false,
                 }
             },
             {
                 name: 'The Game',
                 points: 0,
                 guess: {
-                    value: 'Test',
-                    correct: true,
+                    value: '',
+                    correct: false,
                 }
             },
             {
                 name: '2 Chainz',
                 points: 0,
                 guess: {
-                    value: 'Test',
-                    correct: true,
+                    value: '',
+                    correct: false,
                 }
             },
             {
                 name: 'Rich Smallies Big',
                 points: 0,
                 guess: {
-                    value: 'Test',
-                    correct: true,
+                    value: '',
+                    correct: false,
                 }
             },
         ];
@@ -116,6 +116,8 @@ const Room = () => {
                 name={player.name}
                 points={player.points}
                 avatar={avatars[++i]}
+                guessedCorrectly={player.guess.correct}
+                guess={player.guess.value}
             />
         ));
     }
@@ -129,14 +131,21 @@ const Room = () => {
     }
 
     const handleSubmitGuess = () => {
+        let newPlayersList = players;
+        newPlayersList[0].guess.value = guess;
+
+
         if (guess === "baby") {
             setGuessedCorrectly(true);
             setErrorMessage("");
+            newPlayersList[0].guess.correct = true;
         } else {
             const errors = ["Oh noooo 😿", "That's not it 🥺", "Try again 😔", "You'll get it eventually 🤡"];
             const index = Math.floor(Math.random() * errors.length);
             setErrorMessage(errors[index]);
         }
+
+        setPlayers(newPlayersList);
     }
 
     return (
