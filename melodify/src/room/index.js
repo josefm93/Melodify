@@ -5,6 +5,8 @@ import Timer from './timer';
 import Input from '../components/input';
 import FeatureButton from '../components/button';
 
+import Player from "../components/player"
+
 const Room = () => {
     const [status, setStatus] = useState("WAITING");
     const [round, setRound] = useState(1);
@@ -31,7 +33,10 @@ const Room = () => {
 
     const renderPlayers = (players) => {
         return players.map((player) => (
-            <span>Player component goes here</span>
+            <Player 
+                key={player.name}
+                name={player.name}
+            />
         ));
     }
 
