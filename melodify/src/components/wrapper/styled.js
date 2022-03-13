@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
-  /* display: flex;
+  display: flex;
   flex-direction: column;
-  height: 100vh; */
+  height: 100vh;
 `;
 
 export default StyledWrapper;
