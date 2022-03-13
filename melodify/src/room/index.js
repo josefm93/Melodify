@@ -36,6 +36,7 @@ const Room = () => {
                 </span>
                 <div className="players-container">
                     {renderPlayers(players)}
+                    <div className="players-container shadow"></div>
                 </div>
             </Left>
             <Right>
