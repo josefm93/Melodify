@@ -6,19 +6,23 @@ import Input from '../components/input';
 import FeatureButton from '../components/button';
 
 import Player from "../components/player"
+import Category from "../components/category"
 
 const Room = () => {
     const TIME_PER_ROUND = 30;
 
-    const [status, setStatus] = useState("STARTED");
+    const [status, setStatus] = useState("WAITING");
     const [round, setRound] = useState(1);
-    const [category, setCategory] = useState(null);
+    const [categories, setCategories] = useState([]);
     const [players, setPlayers] = useState([]);
     const [track, setTrack] = useState({});
     const [timeLeft, setTimeLeft] = useState(TIME_PER_ROUND);
     const [guessedCorrectly, setGuessedCorrectly] = useState(false);
 
     let avatars = [];
+
+
+    const link = "http://asdasdads.com"
 
     useEffect(() => {
         // TODO: @Andy socket calls
@@ -30,7 +34,31 @@ const Room = () => {
                     value: 'Test',
                     correct: true,
                 }
-            }
+            },
+            {
+                name: 'One',
+                points: 10,
+                guess: {
+                    value: 'Test',
+                    correct: true,
+                }
+            },
+            {
+                name: 'One',
+                points: 10,
+                guess: {
+                    value: 'Test',
+                    correct: true,
+                }
+            },
+            {
+                name: 'One',
+                points: 10,
+                guess: {
+                    value: 'Test',
+                    correct: true,
+                }
+            },
         ];
         setPlayers(samplePlayerArray);
 
@@ -67,6 +95,7 @@ const Room = () => {
         setTrack(track);
     }
 
+    
     const renderPlayers = (players) => {
         let i = 0;
         return players.map((player) => (
@@ -76,6 +105,10 @@ const Room = () => {
                 avatar={avatars[++i]}
             />
         ));
+    }
+
+    const handleStartGame = () => {
+        setStatus("start gaem")
     }
 
     return (
@@ -92,7 +125,19 @@ const Room = () => {
             <Right>
                 {
                     status === "WAITING"
-                        ? <span>Lobby</span>
+                        ? 
+                        <>
+                            <h1>Lobby</h1>
+                            <p>Share this link with your friends! {link}</p>
+                            <h1>Category</h1>
+                            <div className="categories">
+                                <Category />
+                            </div>
+                            <FeatureButton
+                                    text="Start Game"
+                                    onClick={handleStartGame}
+                                />
+                        </>
                         : <>
                             <Track
                                 timeLeft={timeLeft}
