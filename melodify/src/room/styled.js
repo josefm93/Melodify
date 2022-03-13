@@ -72,6 +72,12 @@ export const Right = styled.div`
         justify-content: flex-end;
         align-items: stretch;
 
+        .error-message {
+            font-size: 2rem;
+            color: white;
+            padding-bottom: 2rem;
+        }
+
         input {
             background-color: transparent;
             color: white;

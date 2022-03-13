@@ -23,7 +23,7 @@ const Room = () => {
     const [timeLeft, setTimeLeft] = useState(TIME_PER_ROUND);
     const [guess, setGuess] = useState("");
     const [guessedCorrectly, setGuessedCorrectly] = useState(false);
-    const [guessInput, setGuessInput] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
     let avatars = [];
 
@@ -131,10 +131,11 @@ const Room = () => {
     const handleSubmitGuess = () => {
         if (guess === "baby") {
             setGuessedCorrectly(true);
+            setErrorMessage("");
         } else {
-            const errorMessages = ["Oh noooo :(", "That's not it", "Try again", "You'll get it eventually ;)"];
-            const index = Math.floor(Math.random * errorMessages.length);
-            message.error(errorMessages[index]);
+            const errors = ["Oh noooo 😿", "That's not it 🥺", "Try again 😔", "You'll get it eventually 🤡"];
+            const index = Math.floor(Math.random() * errors.length);
+            setErrorMessage(errors[index]);
         }
     }
 
@@ -175,6 +176,9 @@ const Room = () => {
                         />
                         {!guessedCorrectly
                             ?    <div className="guessing-area">
+                                {errorMessage && (
+                                    <span class="error-message">{errorMessage}</span>
+                                )}
                                 <Input
                                     borderColour="#AF96C3"
                                     placeholder="Guess the song..."
@@ -186,7 +190,7 @@ const Room = () => {
                                     onClick={handleSubmitGuess}
                                 />
                             </div>
-                            : <span className="win-text">You got it!</span>
+                            : <span className="win-text">👶 You got it! 🥳</span>
                         }
 
                     </>
