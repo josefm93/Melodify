@@ -59,9 +59,10 @@ export const Right = styled.div`
         justify-content: space-between;
     }
 
-    h1 {
+    h1, p {
         color: #fff;
     }
+
 
     /* tracks */
     .guessing-area {

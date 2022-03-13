@@ -22,14 +22,14 @@ const Room = () => {
     let avatars = [];
 
 
-    const link = "http://asdasdads.com"
+    const link = "http://melodify.app/room?=zQ6Qt1pTnLM"
 
     useEffect(() => {
         // TODO: @Andy socket calls
         const samplePlayerArray = [
             {
                 name: '50 C',
-                points: 50,
+                points: 0,
                 guess: {
                     value: 'Test',
                     correct: true,
@@ -37,7 +37,7 @@ const Room = () => {
             },
             {
                 name: 'The Game',
-                points: 100,
+                points: 0,
                 guess: {
                     value: 'Test',
                     correct: true,
@@ -45,7 +45,7 @@ const Room = () => {
             },
             {
                 name: '2 Chainz',
-                points: 2,
+                points: 0,
                 guess: {
                     value: 'Test',
                     correct: true,
@@ -53,7 +53,7 @@ const Room = () => {
             },
             {
                 name: 'Rich Smallies Big',
-                points: 99,
+                points: 0,
                 guess: {
                     value: 'Test',
                     correct: true,
@@ -102,6 +102,7 @@ const Room = () => {
             <Player 
                 key={player.name}
                 name={player.name}
+                points={player.points}
                 avatar={avatars[++i]}
             />
         ));
