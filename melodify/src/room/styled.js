@@ -75,4 +75,13 @@ export const Right = styled.div`
             color: white;
         }
     }
+
+    .win-text {
+        font-size: 5rem;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        flex: 1;
+        margin-top: 10rem;
+    }
 `;

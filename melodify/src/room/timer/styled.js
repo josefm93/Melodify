@@ -28,5 +28,8 @@ export const Container = styled.div`
         color: #9CF4E4;
         background-color: #533B53;
         border-radius: 50%;
+        width: 45px;
+        height: 40px;
+        text-align: center;
     }
 `;
