@@ -7,16 +7,19 @@ const FeatureButton = ({
     width = '200px',
     primaryColour = '#8BD6C8',
     secondaryColour = '#533B53',
-    textColour
+    textColour,
+    onClick,
+    className
 }) => {
     return (
         <StyledButton
-            className='feature-button'
+            className={`feature-button ${className}`}
             block
             style={{
                 width: width,
                 backgroundColor: primaryColour,
             }}
+            onClick={onClick}
         >
             <span
                 className='text'

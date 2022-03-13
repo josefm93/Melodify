@@ -1,6 +1,4 @@
-#root {
-  display: flex;
-  flex-direction: column;
+body .ant-modal-mask.ant-fade-leave.ant-fade-leave-active.ant-fade {
   height: 100vh;
 }
 

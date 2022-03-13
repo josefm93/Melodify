@@ -7,18 +7,21 @@ import {
 } from "react-router-dom";
 import { socket, SocketContext } from './context/socket';
 
-import Header from './components/header';
+import Wrapper from "./components/wrapper";
 import Room from "./room/index.js"
 import Home from "./home/index.js"
 
 function App() {
   return (
     <SocketContext.Provider  value={socket}>
-        <Header/>
-        <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/room" element={<Room/>}/>
-        </Routes>
+        <Wrapper
+          child={(
+            <Routes>
+              <Route path="/" element={<Home/>}/>
+              <Route path="/room" element={<Room/>}/>
+          </Routes> 
+          )}>
+        </Wrapper>
     </SocketContext.Provider>
   );
 }

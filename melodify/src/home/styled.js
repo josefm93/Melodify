@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Modal } from "antd";
 
-const Container = styled.div`
+export const Container = styled.div`
     flex: 1;
 
     .content {
@@ -37,6 +38,7 @@ const Container = styled.div`
             }
         }
     }
+
     .background {
         position: absolute;
         bottom: 0;
@@ -47,4 +49,75 @@ const Container = styled.div`
     }
 `;
 
-export default Container;
+export const StyledModal = styled(Modal)`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    /* min-height: 500px; */
+
+    &.hidden {
+        display: none;
+    }
+
+    .ant-modal-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .ant-modal-close {
+            align-self: flex-end;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #9CF4E4;
+            }
+        }
+
+        .ant-modal-body {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            font-size: 2rem;
+
+            .ant-input {
+                margin: 0 1rem;
+            }
+        }
+
+        .ant-modal-footer {
+            margin-top: 50px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            .feature-button:hover {
+                background-color: #533B53 !important;
+
+                .text {
+                    color: #9CF4E4 !important;
+                }
+
+                .shadow {
+                    background-color: #9CF4E4 !important;
+                }
+            }
+        }
+    }
+
+    .ant-modal-close {
+        background-color: transparent;
+        border: none;
+        background-color: #533B53;
+        padding: 5px;
+        border-radius: 50%;
+
+        svg {
+            color: white;
+            font-size: 1.5rem;
+        }
+    }
+`;
