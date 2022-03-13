@@ -62,6 +62,12 @@ export const StyledModal = styled(Modal)`
     padding: 2rem;
     /* min-height: 500px; */
 
+    .avatar-and-welcome {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 25px;
+    }
+
     &.hidden {
         display: none;
     }

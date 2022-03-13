@@ -56,9 +56,12 @@ const Home = () => {
                     />
                 )}
             >
-                <CustomAvatar />
+                <div className="avatar-and-welcome">
+                    <CustomAvatar />
 
-                Hey there, <Input placeholder="Enter Name"/> !
+                    Hey there, 
+                </div>
+                <Input placeholder="Enter Name"/> !
             </StyledModal>
             <img className="background left" src={backgroundLeft} alt="background"/>
             <img className="background right" src={backgroundRight} alt="background"/>
