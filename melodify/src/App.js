@@ -10,17 +10,24 @@ import { socket, SocketContext } from './context/socket';
 import Wrapper from "./components/wrapper";
 import Room from "./room/index.js"
 import Home from "./home/index.js"
+import Header from "./components/header"
 
 function App() {
   return (
     <SocketContext.Provider  value={socket}>
         <Wrapper
           child={(
-            <Routes>
-              <Route path="/" element={<Home/>}/>
-              <Route path="/room" element={<Room/>}/>
-          </Routes> 
+            <>
+              <Header />
+              <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/room" element={<Room/>}/>
+             </Routes> 
+            </>
+
           )}>
+
+   
         </Wrapper>
     </SocketContext.Provider>
   );

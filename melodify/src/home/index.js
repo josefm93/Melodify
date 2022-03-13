@@ -1,11 +1,14 @@
 
 import { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 
 import { Container, StyledModal } from  "./styled.js";
 import FeatureButton from "../components/button";
 import Input from "../components/input";
 import backgroundLeft from "../assets/home-page-left.png";
 import backgroundRight from "../assets/home-page-right.png";
+import CustomAvatar from '../components/CustomAvatar/index.js';
+
 
 const Home = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -22,6 +25,8 @@ const Home = () => {
         setIsModalVisible(false);
       };
 
+
+    const navigate = useNavigate()
 
     return (
         <Container>
@@ -41,14 +46,18 @@ const Home = () => {
                 onCancel={handleCancel}
                 className={isModalVisible ? "visible" : "hidden"}
                 footer={(
+
                     <FeatureButton
                         text="Create Room"
                         primaryColour="#9CF4E4"
                         secondaryColour="#3E625B"
                         width="300px"
+                        onClick={() => navigate("/room")}
                     />
                 )}
             >
+                <CustomAvatar />
+
                 Hey there, <Input placeholder="Enter Name"/> !
             </StyledModal>
             <img className="background left" src={backgroundLeft} alt="background"/>
