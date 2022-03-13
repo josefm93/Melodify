@@ -11,6 +11,7 @@ const FeatureButton = ({
 }) => {
     return (
         <StyledButton
+            className='feature-button'
             block
             style={{
                 width: width,

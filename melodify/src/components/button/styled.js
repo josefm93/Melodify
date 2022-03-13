@@ -8,6 +8,7 @@ const StyledButton = styled(Button)`
     height: 60px;
     border-radius: 2rem;
     border: none;
+    cursor: pointer;
 
     .text {
         text-transform: uppercase;
