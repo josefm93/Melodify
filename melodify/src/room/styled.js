@@ -49,4 +49,30 @@ export const Right = styled.div`
     flex: 3;
     display: flex;
     flex-direction: column;
+
+    .guessing-area {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: stretch;
+
+        input {
+            background-color: transparent;
+            color: white;
+            padding-left: 2rem;
+            
+            ::placeholder {
+                color: white;
+                font-family: GothamLight;
+            }
+        }
+
+        .feature-button {
+            margin-top: 2rem;
+            margin-bottom: 10px;
+            width: 100% !important;
+            color: white;
+        }
+    }
 `;

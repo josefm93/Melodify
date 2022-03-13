@@ -2,8 +2,11 @@ import { useState, useEffect } from 'react';
 import { Container, Left, Right } from './styled';
 import Track from './track';
 import Timer from './timer';
+import Input from '../components/input';
+import FeatureButton from '../components/button';
 
 const Room = () => {
+    const [status, setStatus] = useState("WAITING");
     const [round, setRound] = useState(1);
     const [category, setCategory] = useState(null);
     const [players, setPlayers] = useState([]);
@@ -27,7 +30,6 @@ const Room = () => {
 
 
     const renderPlayers = (players) => {
-        console.log('hi!');
         return players.map((player) => (
             <span>Player component goes here</span>
         ));
@@ -45,8 +47,23 @@ const Room = () => {
                 </div>
             </Left>
             <Right>
-                <Track/>
-                <Timer/>
+                {
+                    status === "WAITING"
+                        ? <span>Lobby</span>
+                        : <>
+                            <Track/>
+                            <Timer/>
+                            <div className="guessing-area">
+                                <Input
+                                    borderColour="#AF96C3"
+                                    placeholder="Guess the song..."
+                                />
+                                <FeatureButton
+                                    text="Let's Gooo"
+                                />
+                            </div>
+                        </>
+                }
             </Right>
         </Container>
     );
