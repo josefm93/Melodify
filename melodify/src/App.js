@@ -12,7 +12,7 @@ import Home from "./home/index.js"
 function App() {
   return (
       <div>
-        <nav>
+        {/* <nav>
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -22,7 +22,7 @@ function App() {
             </li>
 
           </ul>
-        </nav>
+        </nav> */}
 
         <Routes>
           <Route path="/" element={<Home/>}/>
