@@ -1,8 +1,24 @@
+@font-face {
+  font-family: "GothamTitle";
+  src: local("GoldmanBlack"),
+   url("./fonts/Gotham/Gotham-Black.otf") format("truetype");
+
+}
+@font-face {
+  font-family: "GothamLight";
+  src: local("GothamLight"),
+   url("./fonts/Gotham/Gotham-Light.otf") format("truetype");
+
+}
+@font-face {
+  font-family: "GothamBody";
+  src: local("GoldmanMedium"),
+   url("./fonts/Gotham/Gotham-Medium.otf") format("truetype");
+}
+  
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "GothamBody";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
