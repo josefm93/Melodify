@@ -3,7 +3,9 @@ import StyledInput from './styled.js';
 
 const Input = ({
     borderColour = '#AF96C3',
-    placeholder
+    placeholder,
+    onChange,
+    onEnter
 }) => {
     return (
       <StyledInput
@@ -12,6 +14,8 @@ const Input = ({
         style={{
             border: `${borderColour} solid 2px`
         }}
+        onChange={(e) => onChange(e)}
+        onEnter={onEnter}
       />
     )
 }

@@ -1,13 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext, useCallback } from 'react';
 import { Container, Left, Right } from './styled';
 import Track from './track';
 import Timer from './timer';
 import Input from '../components/input';
 import FeatureButton from '../components/button';
+import {SocketContext} from '../context/socket.js';
 
 import Player from "../components/player"
 
 const Room = () => {
+    const socket = useContext(SocketContext);
+
     const TIME_PER_ROUND = 30;
 
     const [status, setStatus] = useState("STARTED");
@@ -32,7 +35,11 @@ const Room = () => {
                 }
             }
         ];
-        setPlayers(samplePlayerArray);
+
+        socket.on("newPlayer", (newPlayersList) => {
+            console.log("response from newPlayer", newPlayersList);
+            setPlayers(newPlayersList)
+        });
 
         // Set avatars
         if (avatars.length < players.length) {

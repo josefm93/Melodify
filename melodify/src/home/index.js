@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext, useCallback } from 'react';
 import { useNavigate } from "react-router-dom";
 
 import { Container, StyledModal } from  "./styled.js";
@@ -8,9 +8,17 @@ import Input from "../components/input";
 import backgroundLeft from "../assets/home-page-left.png";
 import backgroundRight from "../assets/home-page-right.png";
 import CustomAvatar from '../components/CustomAvatar/index.js';
+import {SocketContext} from '../context/socket.js';
 
 
 const Home = () => {
+    const socket = useContext(SocketContext);
+    const [name, setName] = useState("");
+
+    const establishConnection = useCallback(() => {
+        socket.emit("connection");
+    }, []);
+
     const [isModalVisible, setIsModalVisible] = useState(false);
 
     const showModal = () => {
@@ -24,6 +32,15 @@ const Home = () => {
       const handleCancel = () => {
         setIsModalVisible(false);
       };
+
+      const handleCreateRoom = () => {
+          socket.emit("createRoom", name);
+          navigate("/room");
+      };
+
+      const handleNameChange = (e) => {
+        setName(e.target.value); 
+      }
 
 
     const navigate = useNavigate()
@@ -52,13 +69,17 @@ const Home = () => {
                         primaryColour="#9CF4E4"
                         secondaryColour="#3E625B"
                         width="300px"
-                        onClick={() => navigate("/room")}
+                        onClick={handleCreateRoom}
                     />
                 )}
             >
                 <CustomAvatar />
 
-                Hey there, <Input placeholder="Enter Name"/> !
+                Hey there,
+                    <Input
+                        placeholder="Enter Name"
+                        onChange={handleNameChange}
+                    /> !
             </StyledModal>
             <img className="background left" src={backgroundLeft} alt="background"/>
             <img className="background right" src={backgroundRight} alt="background"/>
