@@ -10,7 +10,6 @@ const Player = ({
         <StyledPlayer>
             <CustomAvatar 
                 className="avatar" 
-                style={{fontSize: "250px"}} 
             />
             <div className="player-info">
                 <p className="points">0 PTS</p>

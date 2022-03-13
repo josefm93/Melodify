@@ -7,11 +7,13 @@ const StyledPlayer = styled.div`
     background-color: "red";
     margin-bottom: 30px;
 
-    .avatar {
+    .anticon {
+        font-size: 4rem !important;
     }
 
     .player-info {
         font-family: "GothamLight";
+        margin-left: 1rem;
         .points {
             margin: 0;
             padding: 0;
