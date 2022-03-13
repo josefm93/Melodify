@@ -5,12 +5,14 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import { socket, SocketContext } from './context/socket';
 
 import Room from "./room/index.js"
 import Home from "./home/index.js"
 
 function App() {
   return (
+    <SocketContext.Provider  value={socket}>
       <div>
         {/* <nav>
           <ul>
@@ -29,6 +31,7 @@ function App() {
           <Route path="/room" element={<Room/>}/>
         </Routes>
       </div>
+    </SocketContext.Provider>
   );
 }
 
