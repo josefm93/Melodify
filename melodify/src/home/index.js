@@ -75,6 +75,7 @@ const Home = () => {
             >
                 <div className="avatar-and-welcome">
                     <CustomAvatar />
+                    
                     <span>                Hey there,
                     <Input
                         placeholder="Enter Name"

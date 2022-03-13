@@ -67,10 +67,12 @@ const Room = () => {
             },
         ];
 
-        socket.on("newPlayer", (newPlayersList) => {
-            console.log("response from newPlayer", newPlayersList);
-            setPlayers(newPlayersList)
-        });
+        // socket.on("newPlayer", (newPlayersList) => {
+        //     console.log("response from newPlayer", newPlayersList);
+        //     setPlayers(newPlayersList)
+        // });
+
+        setPlayers(samplePlayerArray);
 
         // Set avatars
         if (avatars.length < players.length) {
