@@ -3,9 +3,9 @@ import Icon from "@ant-design/icons";
 import { avatarsList } from "./constant";
 import { StyledAvatar } from "./styled";
 
-const CustomAvatar = ({ photo, background = "white", size = "55px" }) => {
+const CustomAvatar = ({ photo, background = "white", size = "55px", index = 0 }) => {
     const getRandomAvatar = (avatarsList) => {
-        const index = Math.floor(Math.random() * avatarsList.length);
+        // const index = Math.floor(Math.random() * avatarsList.length);
         return avatarsList[index];
     };
 

@@ -73,6 +73,10 @@ export const Right = styled.div`
             margin-bottom: 10px;
             width: 100% !important;
             color: white;
+
+            &:hover {
+                background-color: white !important;
+            }
         }
     }
 

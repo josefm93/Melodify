@@ -3,13 +3,15 @@ import CustomAvatar from "../CustomAvatar"
 import StyledPlayer from "./styled"
 
 const Player = ({
-    name
+    name,
+    avatar=0
 }) => {
 
     return (
         <StyledPlayer>
             <CustomAvatar 
-                className="avatar" 
+                className="avatar"
+                index={avatar}
             />
             <div className="player-info">
                 <p className="points">0 PTS</p>

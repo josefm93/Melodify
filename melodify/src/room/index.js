@@ -18,8 +18,10 @@ const Room = () => {
     const [timeLeft, setTimeLeft] = useState(TIME_PER_ROUND);
     const [guessedCorrectly, setGuessedCorrectly] = useState(false);
 
+    let avatars = [];
+
     useEffect(() => {
-        // TODO: Handle socket calls when game updates
+        // TODO: @Andy socket calls
         const samplePlayerArray = [
             {
                 name: 'One',
@@ -31,6 +33,13 @@ const Room = () => {
             }
         ];
         setPlayers(samplePlayerArray);
+
+        // Set avatars
+        if (avatars.length < players.length) {
+            for (let i = avatars.length - 1; i < players.length; i++) {
+                avatars.push(Math.floor(Math.random * 11));
+            }
+        }
     }, []);
 
     useEffect(() => {
@@ -45,17 +54,26 @@ const Room = () => {
         return () => clearInterval(interval);
     }, [timeLeft]);
 
-    const handleStartRound = () => {
+    useEffect(() => {
+        if (status === "STARTED") {
+            // TODO: Set track
+            handleStartRound({});
+        }
+    }, [status]);
+
+    const handleStartRound = (track) => {
         setTimeLeft(TIME_PER_ROUND)
         setGuessedCorrectly(false);
+        setTrack(track);
     }
 
-
     const renderPlayers = (players) => {
+        let i = 0;
         return players.map((player) => (
             <Player 
                 key={player.name}
                 name={player.name}
+                avatar={avatars[++i]}
             />
         ));
     }
@@ -76,7 +94,9 @@ const Room = () => {
                     status === "WAITING"
                         ? <span>Lobby</span>
                         : <>
-                            <Track/>
+                            <Track
+                                timeLeft={timeLeft}
+                            />
                             <Timer
                                 maxTime={TIME_PER_ROUND}
                                 timeLeft={timeLeft}
