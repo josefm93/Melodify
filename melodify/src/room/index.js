@@ -28,32 +28,32 @@ const Room = () => {
         // TODO: @Andy socket calls
         const samplePlayerArray = [
             {
-                name: 'One',
-                points: 10,
+                name: '50 C',
+                points: 50,
                 guess: {
                     value: 'Test',
                     correct: true,
                 }
             },
             {
-                name: 'One',
-                points: 10,
+                name: 'The Game',
+                points: 100,
                 guess: {
                     value: 'Test',
                     correct: true,
                 }
             },
             {
-                name: 'One',
-                points: 10,
+                name: '2 Chainz',
+                points: 2,
                 guess: {
                     value: 'Test',
                     correct: true,
                 }
             },
             {
-                name: 'One',
-                points: 10,
+                name: 'Rich Smallies Big',
+                points: 99,
                 guess: {
                     value: 'Test',
                     correct: true,
@@ -124,42 +124,42 @@ const Room = () => {
             </Left>
             <Right>
                 {
-                    status === "WAITING"
-                        ? 
-                        <>
-                            <h1>Lobby</h1>
-                            <p>Share this link with your friends! {link}</p>
-                            <h1>Category</h1>
-                            <div className="categories">
-                                <Category />
-                            </div>
-                            <FeatureButton
-                                    text="Start Game"
-                                    onClick={handleStartGame}
+                status === "WAITING"
+                    ? 
+                    <>
+                        <h1>Lobby</h1>
+                        <p>Share this link with your friends! {link}</p>
+                        <h1>Choose a category</h1>
+                        <div className="categories">
+                            <Category />
+                        </div>
+                        <FeatureButton
+                                text="Start Game"
+                                onClick={handleStartGame}
+                            />
+                    </>
+                    : <>
+                        <Track
+                            timeLeft={timeLeft}
+                        />
+                        <Timer
+                            maxTime={TIME_PER_ROUND}
+                            timeLeft={timeLeft}
+                        />
+                        {!guessedCorrectly
+                            ?    <div className="guessing-area">
+                                <Input
+                                    borderColour="#AF96C3"
+                                    placeholder="Guess the song..."
                                 />
-                        </>
-                        : <>
-                            <Track
-                                timeLeft={timeLeft}
-                            />
-                            <Timer
-                                maxTime={TIME_PER_ROUND}
-                                timeLeft={timeLeft}
-                            />
-                            {!guessedCorrectly
-                                ?    <div className="guessing-area">
-                                    <Input
-                                        borderColour="#AF96C3"
-                                        placeholder="Guess the song..."
-                                    />
-                                    <FeatureButton
-                                        text="Let's Gooo"
-                                    />
-                                </div>
-                                : <span className="win-text">You got it!</span>
-                            }
+                                <FeatureButton
+                                    text="Let's Gooo"
+                                />
+                            </div>
+                            : <span className="win-text">You got it!</span>
+                        }
 
-                        </>
+                    </>
                 }
             </Right>
         </Container>

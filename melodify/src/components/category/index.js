@@ -9,13 +9,10 @@ import rock  from "../../assets/categories/rock.jpg"
 const Category = () => {
 
     return (
-        <StyledCategory>
-
-        
+        <StyledCategory>        
             <label>
                 <input type="radio" name="nature" value="nature1" checked />
                 <img src={charts} alt="charts" />
-
             </label>
 
             <label>
@@ -32,7 +29,6 @@ const Category = () => {
             <label>
                 <input type="radio" name="nature" value="nature3"/>
                 <img src={hiphop} alt="hip hop" />
-
             </label>
         </StyledCategory>
     );
