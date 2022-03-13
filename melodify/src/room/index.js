@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Container, Left, Right } from './styled';
 
+import Player from "../components/player"
+
 const Room = () => {
     const [round, setRound] = useState(1);
     const [players, setPlayers] = useState([]);
@@ -24,7 +26,10 @@ const Room = () => {
     const renderPlayers = (players) => {
         console.log('hi!');
         return players.map((player) => (
-            <span>Player component goes here</span>
+            <Player 
+                key={player.name}
+                name={player.name}
+            />
         ));
     }
 
